@@ -1,0 +1,9 @@
+{
+  "name": "Xiaomi Sales Tracker — Jodi",
+  "short_name": "Xiaomi Tracker",
+  "start_url": "./index.html",
+  "display": "standalone",
+  "background_color": "#f5f6f8",
+  "theme_color": "#ff6900",
+  "description": "Sales tracker Xiaomi untuk Jodi"
+}

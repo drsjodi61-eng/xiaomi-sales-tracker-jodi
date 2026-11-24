@@ -1,0 +1,165 @@
+<!doctype html>
+<html lang="id">
+<head>
+<meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover">
+<meta name="theme-color" content="#ff6900"><meta name="description" content="Xiaomi Sales Tracker Jodi">
+<link rel="manifest" href="manifest.webmanifest">
+<title>Xiaomi Sales Tracker — Jodi</title>
+<style>
+:root{--orange:#ff6900;--bg:#f5f6f8;--card:#fff;--ink:#171717;--muted:#737780;--line:#e8e9ed;--green:#159b62;--red:#d94444;--shadow:0 8px 26px #18202b0b}
+[data-theme=dark]{--bg:#111315;--card:#1b1e21;--ink:#f4f5f6;--muted:#a4a9b0;--line:#30353a;--shadow:0 8px 26px #0003}
+*{box-sizing:border-box}body{margin:0;background:var(--bg);color:var(--ink);font:14px/1.45 Inter,ui-sans-serif,system-ui,-apple-system,Segoe UI,sans-serif;padding-bottom:82px}
+button,input,select,textarea{font:inherit}button{cursor:pointer;border:0}.app{max-width:1000px;margin:auto;padding:16px}.top{display:flex;align-items:center;gap:12px;margin:6px 0 18px}.logo{width:44px;height:44px;border-radius:14px;background:var(--orange);display:grid;place-items:center;color:white;font-weight:900;font-size:21px}.grow{flex:1}.sub,.muted{color:var(--muted)}.sub{font-size:12px}.top h1{font-size:18px;margin:0}.pill{font-size:11px;padding:5px 9px;border-radius:99px;background:#fff0e6;color:#c95000;font-weight:700}
+h2{font-size:18px;margin:18px 0 12px}h3{font-size:14px;margin:0 0 10px}.grid{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:10px}.grid4{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:10px}.card{background:var(--card);border:1px solid var(--line);border-radius:17px;padding:15px;box-shadow:var(--shadow);min-width:0}.metric .label{font-size:12px;color:var(--muted)}.metric strong{display:block;font-size:21px;margin:5px 0}.metric small{color:var(--muted)}.accent{color:var(--orange)}.progress{height:9px;border-radius:99px;background:var(--line);overflow:hidden;margin:10px 0}.progress span{display:block;height:100%;background:var(--orange);border-radius:99px;width:0}.row{display:flex;gap:10px;align-items:center}.between{justify-content:space-between}.btn{padding:11px 14px;border-radius:12px;background:var(--orange);color:white;font-weight:700}.btn.secondary{background:var(--card);border:1px solid var(--line);color:var(--ink)}.btn.danger{background:#fff0f0;color:#bd2929}.btn.small{padding:7px 10px;font-size:12px}.full{width:100%}.tabs{position:fixed;bottom:0;left:0;right:0;background:var(--card);border-top:1px solid var(--line);display:flex;justify-content:center;z-index:10;padding:8px max(8px,env(safe-area-inset-right)) calc(8px + env(safe-area-inset-bottom));}.tabs-inner{width:min(100%,720px);display:grid;grid-template-columns:repeat(5,1fr);gap:4px}.tab{background:transparent;color:var(--muted);padding:7px 2px;border-radius:10px;font-size:10px}.tab b{display:block;font-size:18px;margin-bottom:2px}.tab.active{color:var(--orange);background:#fff2e9}.section{display:none}.section.active{display:block}.field{display:grid;gap:5px;margin-bottom:11px}.field label{font-size:12px;color:var(--muted);font-weight:650}.field input,.field select,.field textarea{width:100%;padding:11px 12px;border:1px solid var(--line);border-radius:11px;background:var(--bg);color:var(--ink);outline:none}.field input:focus,.field select:focus{border-color:var(--orange)}.formgrid{display:grid;grid-template-columns:1fr 1fr;gap:0 10px}.wide{grid-column:1/-1}.hidden{display:none!important}.list{display:grid;gap:9px}.sale{display:flex;gap:10px;align-items:flex-start}.sale .info{flex:1;min-width:0}.sale strong{display:block;overflow-wrap:anywhere}.sale small{color:var(--muted)}.tag{font-size:10px;border-radius:7px;padding:4px 7px;background:var(--bg);color:var(--muted)}.empty{text-align:center;padding:28px;color:var(--muted)}.notice{padding:11px 12px;border-radius:12px;background:#fff5e9;color:#8a470d;font-size:12px;margin:10px 0}.status{font-size:11px;color:var(--muted)}.status.ok{color:var(--green)}.status.bad{color:var(--red)}.barrow{display:grid;grid-template-columns:85px 1fr 34px;gap:8px;align-items:center;margin:9px 0;font-size:12px}.barrow .progress{margin:0}.tablewrap{overflow:auto}table{width:100%;border-collapse:collapse;font-size:12px}td,th{text-align:left;padding:10px 7px;border-bottom:1px solid var(--line);white-space:nowrap}th{color:var(--muted)}.modal{position:fixed;inset:0;background:#0008;display:none;align-items:flex-end;justify-content:center;z-index:20}.modal.show{display:flex}.modalbox{background:var(--card);border-radius:20px 20px 0 0;padding:18px;width:min(100%,680px);max-height:90vh;overflow:auto}.modalhead{display:flex;justify-content:space-between;align-items:center;margin-bottom:12px}.x{background:var(--bg);color:var(--ink);border-radius:50%;width:32px;height:32px}.toast{position:fixed;top:12px;left:50%;transform:translateX(-50%);background:#202326;color:white;padding:10px 15px;border-radius:12px;z-index:40;display:none;max-width:90%;font-size:12px}.toast.show{display:block}canvas{width:100%;height:190px}.dangertext{color:var(--red)}@media(min-width:700px){.grid{grid-template-columns:repeat(4,1fr)}.grid4{grid-template-columns:repeat(4,1fr)}.modal{align-items:center}.modalbox{border-radius:20px}.app{padding:24px}.tabs{bottom:14px;border:1px solid var(--line);border-radius:18px;left:50%;right:auto;transform:translateX(-50%);width:min(720px,calc(100% - 28px));box-shadow:var(--shadow)}body{padding-bottom:110px}}
+</style>
+</head>
+<body>
+<div class="app">
+<header class="top"><div class="logo">mi</div><div class="grow"><h1>Xiaomi Sales Tracker</h1><div class="sub">Jodi · Erafone Summarecon Mall Bandung</div></div><span class="pill">JODI EDITION</span><button class="btn secondary small" id="themeBtn" aria-label="Ganti tema">◐</button></header>
+
+<main>
+<section id="dashboard" class="section active">
+<div class="row between"><div><div class="sub" id="todayLabel">RINGKASAN PENJUALAN</div><h2 style="margin:3px 0 12px">Dashboard</h2></div><span class="status" id="storageStatus">Memuat...</span></div>
+<div class="grid">
+<div class="card metric"><div class="label">Omzet bersih bulan ini</div><strong id="mRevenue">Rp0</strong><small id="mGross">Omzet kotor Rp0</small></div>
+<div class="card metric"><div class="label">Unit terjual</div><strong id="mQty">0</strong><small>Seluruh kategori</small></div>
+<div class="card metric"><div class="label">Diskon diberikan</div><strong id="mDiscount">Rp0</strong><small>Bulan berjalan</small></div>
+<div class="card metric"><div class="label">Estimasi komisi</div><strong id="mCommission">Rp0</strong><small>Belum termasuk bonus jika diatur</small></div>
+</div>
+<div class="card" style="margin-top:10px"><div class="row between"><div><h3>Target omzet bulanan</h3><div class="sub" id="targetCaption">Atur target di menu Target</div></div><strong class="accent" id="achievement">0%</strong></div><div class="progress"><span id="targetBar"></span></div><div class="row between sub"><span id="actualTarget">Realisasi Rp0</span><span id="remainingTarget">Sisa Rp0</span></div></div>
+<h2>Penjualan per kategori</h2><div class="card" id="categoryBars"></div>
+<div class="row between"><h2>Transaksi terbaru</h2><button class="btn secondary small" data-go="history">Lihat semua</button></div><div class="list" id="recentSales"></div>
+</section>
+
+<section id="input" class="section">
+<h2>Input penjualan</h2><div class="notice">Simpan satu unit per IMEI/serial number. Untuk transaksi multi-unit, tambahkan setiap unit dengan nomor IMEI masing-masing agar validasi duplikat akurat.</div>
+<form id="saleForm" class="card">
+<div class="formgrid">
+<div class="field"><label>Tanggal transaksi</label><input type="date" id="sDate" required></div>
+<div class="field"><label>Kategori</label><select id="sCategory"><option>Smartphone</option><option>Tablet</option><option>AIoT</option><option>TV</option></select></div>
+<div class="field wide"><label>Nama / model produk</label><input id="sProduct" placeholder="Contoh: Xiaomi 15T Pro" required></div>
+<div class="field"><label>Varian RAM / ROM</label><input id="sVariant" placeholder="12GB / 512GB"></div>
+<div class="field"><label>Warna</label><input id="sColor" placeholder="Black"></div>
+<div class="field"><label>IMEI / Serial Number</label><input id="sImei" maxlength="32" placeholder="IMEI 15 digit atau serial number"></div>
+<div class="field"><label>Nomor invoice</label><input id="sInvoice" placeholder="Nomor invoice"></div>
+<div class="field"><label>Harga normal (Rp)</label><input type="number" min="0" id="sNormal" required></div>
+<div class="field"><label>Harga jual (Rp)</label><input type="number" min="0" id="sPrice" required></div>
+<div class="field"><label>Diskon nominal (Rp)</label><input type="number" min="0" id="sDiscount" value="0"></div>
+<div class="field"><label>Metode pembayaran</label><select id="sPayment"><option>Tunai</option><option>Debit</option><option>Kartu Kredit</option><option>PayLater</option><option>Transfer</option><option>Lainnya</option></select></div>
+<div class="field wide"><label>Catatan</label><input id="sNotes" placeholder="Opsional"></div>
+<div class="field wide"><label>Scan IMEI dari foto galeri / kamera</label><input id="imeiPhoto" type="file" accept="image/*" capture="environment"><small class="muted" id="ocrStatus">Pilih foto label IMEI atau barcode. Pemrosesan dilakukan di browser.</small><button class="btn secondary full" type="button" id="scanBtn">⌕ Baca foto dengan OCR</button></div>
+</div>
+<div class="row"><button class="btn full" type="submit">Simpan transaksi</button><button class="btn secondary" type="reset">Reset</button></div>
+</form>
+</section>
+
+<section id="history" class="section">
+<div class="row between"><h2>Riwayat penjualan</h2><button class="btn secondary small" id="exportCsv">Ekspor CSV</button></div>
+<div class="field"><input id="searchSales" placeholder="Cari produk, IMEI, invoice..."></div>
+<div class="formgrid"><div class="field"><label>Dari tanggal</label><input type="date" id="filterFrom"></div><div class="field"><label>Sampai tanggal</label><input type="date" id="filterTo"></div></div>
+<div class="list" id="salesList"></div>
+</section>
+
+<section id="targets" class="section">
+<h2>Target & komisi</h2>
+<div class="card">
+<h3>Pengaturan target</h3>
+<div class="field"><label>Target omzet bulanan (Rp)</label><input type="number" min="0" id="targetRevenue"></div>
+<div class="field"><label>Target unit bulanan</label><input type="number" min="0" id="targetUnits"></div>
+<button class="btn full" id="saveTargets">Simpan target</button>
+</div>
+<div class="card" style="margin-top:12px">
+<h3>Tarif komisi per kategori (Rp / unit)</h3>
+<div class="formgrid">
+<div class="field"><label>Smartphone</label><input type="number" min="0" id="cSmartphone"></div>
+<div class="field"><label>Tablet</label><input type="number" min="0" id="cTablet"></div>
+<div class="field"><label>AIoT</label><input type="number" min="0" id="cAIoT"></div>
+<div class="field"><label>TV</label><input type="number" min="0" id="cTV"></div>
+<div class="field wide"><label>Bonus jika target omzet tercapai (Rp)</label><input type="number" min="0" id="bonusTarget"></div>
+</div><button class="btn full" id="saveCommissions">Simpan tarif komisi</button>
+<div class="notice">Tarif awal Rp0 karena komisi aktual harus mengikuti ketentuan resmi toko/brand. Isi tarif yang benar sebelum menggunakan estimasi.</div>
+</div>
+<div class="card" style="margin-top:12px"><h3>Ringkasan periode berjalan</h3><div class="row between"><span class="muted">Target unit</span><strong id="targetUnitsSummary">0</strong></div><div class="row between"><span class="muted">Realisasi unit</span><strong id="actualUnitsSummary">0</strong></div><div class="row between"><span class="muted">Komisi produk</span><strong id="productCommissionSummary">Rp0</strong></div><div class="row between"><span class="muted">Bonus target</span><strong id="bonusSummary">Rp0</strong></div></div>
+</section>
+
+<section id="reports" class="section">
+<h2>Laporan & keamanan data</h2>
+<div class="grid">
+<div class="card"><div class="label">Jumlah transaksi</div><strong id="rCount">0</strong></div>
+<div class="card"><div class="label">Total omzet kotor</div><strong id="rGross">Rp0</strong></div>
+<div class="card"><div class="label">Total diskon</div><strong id="rDiscount">Rp0</strong></div>
+<div class="card"><div class="label">Omzet bersih</div><strong id="rNet">Rp0</strong></div>
+</div>
+<div class="card" style="margin-top:12px"><h3>Backup & restore</h3><p class="muted">Ekspor backup JSON berisi data transaksi dan pengaturan. Simpan di tempat aman. File backup berisi data pribadi dan IMEI.</p><div class="row"><button class="btn full" id="backupBtn">Backup JSON</button><label class="btn secondary full" style="text-align:center">Restore JSON<input id="restoreFile" type="file" accept="application/json" hidden></label></div></div>
+<div class="card" style="margin-top:12px"><h3>Cloud & akun</h3><div class="status" id="cloudStatus">Cloud belum dikonfigurasi.</div><div class="field" style="margin-top:10px"><label>Supabase Project URL</label><input id="sbUrl" placeholder="https://xxxx.supabase.co"></div><div class="field"><label>Supabase anon / publishable key</label><input id="sbKey" placeholder="sb_publishable_... atau anon key"></div><div class="field"><label>Email akun</label><input type="email" id="cloudEmail" placeholder="email@contoh.com"></div><div class="field"><label>Password</label><input type="password" id="cloudPassword" placeholder="Password akun"></div><div class="row"><button class="btn full" id="cloudSignup">Daftar</button><button class="btn secondary full" id="cloudLogin">Masuk</button></div><div class="row" style="margin-top:8px"><button class="btn secondary full" id="cloudSync">Sinkronkan sekarang</button><button class="btn secondary full" id="cloudLogout">Keluar</button></div><p class="muted">Gunakan Supabase milik sendiri. Data cloud disimpan sebagai payload terenkripsi AES-GCM di tabel privat. Kunci enkripsi dibuat dari password cloud; jangan lupa password. Jangan gunakan service_role key di browser.</p></div>
+<div class="card" style="margin-top:12px"><h3>Pengamanan lokal</h3><div class="field"><label>PIN aplikasi (opsional)</label><input type="password" inputmode="numeric" maxlength="8" id="appPin" placeholder="Buat PIN 4–8 digit"></div><button class="btn secondary full" id="savePin">Atur PIN</button><div class="status" id="pinStatus"></div><div class="notice">Data lokal tersimpan di IndexedDB pada browser/perangkat ini. Menghapus data browser dapat menghapus salinan lokal. Aktifkan cloud dan lakukan backup berkala.</div></div>
+</section>
+</main>
+</div>
+<nav class="tabs"><div class="tabs-inner">
+<button class="tab active" data-tab="dashboard"><b>⌂</b>Home</button><button class="tab" data-tab="input"><b>＋</b>Input</button><button class="tab" data-tab="history"><b>▤</b>History</button><button class="tab" data-tab="targets"><b>◎</b>Target</button><button class="tab" data-tab="reports"><b>▥</b>Laporan</button>
+</div></nav>
+<div class="toast" id="toast"></div>
+<div class="modal" id="detailModal"><div class="modalbox"><div class="modalhead"><h3>Detail transaksi</h3><button class="x" id="closeModal">×</button></div><div id="detailContent"></div></div></div>
+<script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2"></script>
+<script src="https://cdn.jsdelivr.net/npm/tesseract.js@5/dist/tesseract.min.js"></script>
+<script>
+'use strict';
+const $=id=>document.getElementById(id), money=n=>new Intl.NumberFormat('id-ID',{style:'currency',currency:'IDR',maximumFractionDigits:0}).format(Number(n)||0), today=()=>new Date().toISOString().slice(0,10), month=()=>today().slice(0,7);
+const defaults={targetRevenue:0,targetUnits:0,commission:{Smartphone:0,Tablet:0,AIoT:0,TV:0},bonusTarget:0};
+let db, sales=[], settings={...defaults}, sb=null, cloudUser=null, cryptoKey=null, editingId=null;
+function toast(s){$('toast').textContent=s;$('toast').classList.add('show');setTimeout(()=>$('toast').classList.remove('show'),2600)}
+function uid(){return crypto.randomUUID?crypto.randomUUID():Date.now()+'-'+Math.random().toString(16).slice(2)}
+function openDB(){return new Promise((resolve,reject)=>{const r=indexedDB.open('XiaomiSalesJodi',1);r.onupgradeneeded=()=>{const d=r.result;if(!d.objectStoreNames.contains('sales'))d.createObjectStore('sales',{keyPath:'id'});if(!d.objectStoreNames.contains('settings'))d.createObjectStore('settings',{keyPath:'key'});};r.onsuccess=()=>resolve(r.result);r.onerror=()=>reject(r.error)})}
+function req(p){return new Promise((resolve,reject)=>{p.onsuccess=()=>resolve(p.result);p.onerror=()=>reject(p.error)})}
+async function allSales(){return req(db.transaction('sales').objectStore('sales').getAll())}
+async function getSetting(key){return req(db.transaction('settings').objectStore('settings').get(key))}
+async function putSetting(key,value){const tx=db.transaction('settings','readwrite');tx.objectStore('settings').put({key,value});return new Promise((res,rej)=>{tx.oncomplete=res;tx.onerror=()=>rej(tx.error)})}
+async function saveSale(s){const tx=db.transaction('sales','readwrite');tx.objectStore('sales').put(s);return new Promise((res,rej)=>{tx.oncomplete=res;tx.onerror=()=>rej(tx.error);tx.onabort=()=>rej(tx.error)})}
+async function deleteSale(id){const tx=db.transaction('sales','readwrite');tx.objectStore('sales').delete(id);return new Promise((res,rej)=>{tx.oncomplete=res;tx.onerror=()=>rej(tx.error)})}
+async function refresh(){sales=await allSales();settings=(await getSetting('config'))?.value||structuredClone(defaults);render();$('storageStatus').textContent='● Tersimpan di perangkat';$('storageStatus').className='status ok'}
+function totals(rows){return rows.reduce((a,s)=>{a.qty++;a.gross+=+s.normal;a.discount+=+s.discount;a.net+=+s.price;a.commission+=(+settings.commission[s.category]||0);return a},{qty:0,gross:0,discount:0,net:0,commission:0})}
+function render(){const rows=sales.filter(s=>s.date?.startsWith(month()));const t=totals(rows),pct=settings.targetRevenue?Math.min(100,t.net/settings.targetRevenue*100):0,bonus=settings.targetRevenue&&t.net>=settings.targetRevenue?+settings.bonusTarget:0;
+$('todayLabel').textContent=new Date().toLocaleDateString('id-ID',{weekday:'long',day:'numeric',month:'long',year:'numeric'});$('mRevenue').textContent=money(t.net);$('mGross').textContent='Omzet kotor '+money(t.gross);$('mQty').textContent=t.qty;$('mDiscount').textContent=money(t.discount);$('mCommission').textContent=money(t.commission+bonus);$('achievement').textContent=pct.toFixed(1)+'%';$('targetBar').style.width=pct+'%';$('actualTarget').textContent='Realisasi '+money(t.net);$('remainingTarget').textContent='Sisa '+money(Math.max(0,settings.targetRevenue-t.net));$('targetCaption').textContent=settings.targetRevenue?`Target ${money(settings.targetRevenue)}`:'Atur target di menu Target';
+const cats=['Smartphone','Tablet','AIoT','TV'];$('categoryBars').innerHTML=cats.map(c=>{const q=rows.filter(s=>s.category===c).length;return `<div class="barrow"><span>${c}</span><div class="progress"><span style="width:${t.qty?q/t.qty*100:0}%"></span></div><b>${q}</b></div>`}).join('');
+const recent=[...sales].sort((a,b)=>b.createdAt-a.createdAt).slice(0,4);$('recentSales').innerHTML=recent.length?recent.map(saleCard).join(''):'<div class="card empty">Belum ada transaksi. Mulai catat penjualan pertama.</div>';
+const query=$('searchSales').value.toLowerCase(),from=$('filterFrom').value,to=$('filterTo').value;const filtered=[...sales].filter(s=>(!query||[s.product,s.imei,s.invoice,s.category].join(' ').toLowerCase().includes(query))&&(!from||s.date>=from)&&(!to||s.date<=to)).sort((a,b)=>b.createdAt-a.createdAt);$('salesList').innerHTML=filtered.length?filtered.map(saleCard).join(''):'<div class="card empty">Tidak ada transaksi yang cocok.</div>';
+$('targetRevenue').value=settings.targetRevenue||0;$('targetUnits').value=settings.targetUnits||0;['Smartphone','Tablet','AIoT','TV'].forEach(c=>$('c'+c).value=settings.commission[c]||0);$('bonusTarget').value=settings.bonusTarget||0;$('targetUnitsSummary').textContent=settings.targetUnits||0;$('actualUnitsSummary').textContent=t.qty;$('productCommissionSummary').textContent=money(t.commission);$('bonusSummary').textContent=money(bonus);
+$('rCount').textContent=sales.length;$('rGross').textContent=money(totals(sales).gross);$('rDiscount').textContent=money(totals(sales).discount);$('rNet').textContent=money(totals(sales).net);
+}
+function saleCard(s){return `<div class="card sale"><div class="info"><strong>${esc(s.product)}</strong><small>${esc(s.date)} · ${esc(s.category)} · ${esc(s.imei||'Tanpa IMEI')}</small><div class="row" style="margin-top:7px"><span class="tag">${esc(s.invoice||'Tanpa invoice')}</span><span class="tag">${esc(s.variant||'')}</span></div><b style="display:block;margin-top:6px">${money(s.price)}</b></div><button class="btn secondary small" onclick="showDetail('${s.id}')">Detail</button></div>`}
+function esc(x){return String(x??'').replace(/[&<>"']/g,c=>({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;',"'":'&#39;'}[c]))}
+window.showDetail=id=>{const s=sales.find(x=>x.id===id);if(!s)return;$('detailContent').innerHTML=`<p><b>${esc(s.product)}</b></p><p>${esc(s.category)} · ${esc(s.date)}</p><p>IMEI/SN: ${esc(s.imei||'-')}</p><p>Invoice: ${esc(s.invoice||'-')}</p><p>Harga normal: ${money(s.normal)}</p><p>Harga jual: ${money(s.price)}</p><p>Diskon: ${money(s.discount)}</p><p>Metode: ${esc(s.payment)}</p><p>Catatan: ${esc(s.notes||'-')}</p><div class="row"><button class="btn danger full" onclick="removeSale('${s.id}')">Hapus</button><button class="btn secondary full" onclick="editSale('${s.id}')">Edit</button></div>`;$('detailModal').classList.add('show')};
+window.removeSale=async id=>{if(!confirm('Hapus transaksi ini? Tindakan ini akan tersinkron setelah sinkronisasi cloud.'))return;await deleteSale(id);$('detailModal').classList.remove('show');await refresh();toast('Transaksi dihapus')};
+window.editSale=id=>{const s=sales.find(x=>x.id===id);if(!s)return;editingId=id;$('detailModal').classList.remove('show');go('input');$('sDate').value=s.date;$('sCategory').value=s.category;$('sProduct').value=s.product;$('sVariant').value=s.variant;$('sColor').value=s.color;$('sImei').value=s.imei;$('sInvoice').value=s.invoice;$('sNormal').value=s.normal;$('sPrice').value=s.price;$('sDiscount').value=s.discount;$('sPayment').value=s.payment;$('sNotes').value=s.notes;toast('Edit transaksi, lalu simpan perubahan')};
+function go(tab){document.querySelectorAll('.section').forEach(x=>x.classList.toggle('active',x.id===tab));document.querySelectorAll('.tab').forEach(x=>x.classList.toggle('active',x.dataset.tab===tab));window.scrollTo(0,0)}
+document.querySelectorAll('[data-tab]').forEach(b=>b.onclick=()=>go(b.dataset.tab));document.querySelectorAll('[data-go]').forEach(b=>b.onclick=()=>go(b.dataset.go));$('closeModal').onclick=()=>$('detailModal').classList.remove('show');
+$('saleForm').onsubmit=async e=>{e.preventDefault();const normal=+$('sNormal').value,price=+$('sPrice').value,discount=+$('sDiscount').value,imei=$('sImei').value.trim();if(price<0||normal<0||discount<0||discount>normal){toast('Periksa harga dan diskon');return}if(normal>0&&price>normal){toast('Harga jual tidak boleh melebihi harga normal');return}if(imei&&/^\d+$/.test(imei)&&imei.length!==15){toast('IMEI numerik harus 15 digit');return}if(imei&&sales.some(s=>s.imei.toLowerCase()===imei.toLowerCase()&&s.id!==editingId)){toast('IMEI / serial number sudah tercatat');return}
+const s={id:editingId||uid(),date:$('sDate').value,category:$('sCategory').value,product:$('sProduct').value.trim(),variant:$('sVariant').value.trim(),color:$('sColor').value.trim(),imei,invoice:$('sInvoice').value.trim(),normal,price,discount,payment:$('sPayment').value,notes:$('sNotes').value.trim(),createdAt:editingId?(sales.find(x=>x.id===editingId)?.createdAt||Date.now()):Date.now(),updatedAt:Date.now()};
+try{await saveSale(s);editingId=null;e.target.reset();$('sDate').value=today();$('sDiscount').value=0;await refresh();go('dashboard');toast('Transaksi tersimpan di perangkat')}catch(err){toast('Gagal menyimpan: '+err.message)}};
+$('sDate').value=today();$('searchSales').oninput=render;$('filterFrom').onchange=render;$('filterTo').onchange=render;
+$('saveTargets').onclick=async()=>{settings.targetRevenue=+$('targetRevenue').value;settings.targetUnits=+$('targetUnits').value;await putSetting('config',settings);await refresh();toast('Target disimpan')};
+$('saveCommissions').onclick=async()=>{['Smartphone','Tablet','AIoT','TV'].forEach(c=>settings.commission[c]=+$('c'+c).value);settings.bonusTarget=+$('bonusTarget').value;await putSetting('config',settings);await refresh();toast('Tarif komisi disimpan')};
+$('backupBtn').onclick=()=>download(JSON.stringify({format:'xiaomi-sales-jodi-v1',exportedAt:new Date().toISOString(),sales,settings},null,2),'xiaomi-sales-jodi-backup.json','application/json');
+$('restoreFile').onchange=async e=>{const f=e.target.files[0];if(!f)return;try{const obj=JSON.parse(await f.text());if(!Array.isArray(obj.sales)||!obj.settings)throw Error('Format backup tidak valid');if(!confirm(`Pulihkan ${obj.sales.length} transaksi? Data dengan ID sama akan ditimpa.`))return;for(const s of obj.sales)await saveSale(s);settings=obj.settings;await putSetting('config',settings);await refresh();toast('Restore berhasil')}catch(err){toast('Restore gagal: '+err.message)}e.target.value=''};
+function download(data,name,type){const a=document.createElement('a'),url=URL.createObjectURL(new Blob([data],{type}));a.href=url;a.download=name;a.click();URL.revokeObjectURL(url)}
+$('exportCsv').onclick=()=>{const cols=['date','category','product','variant','color','imei','invoice','normal','price','discount','payment','notes'];const csv=[cols.join(','),...sales.map(s=>cols.map(k=>'"'+String(s[k]??'').replace(/"/g,'""')+'"').join(','))].join('\n');download('\ufeff'+csv,'xiaomi-sales-jodi.csv','text/csv;charset=utf-8')};
+$('scanBtn').onclick=async()=>{const f=$('imeiPhoto').files[0];if(!f){toast('Pilih foto terlebih dahulu');return}if(!window.Tesseract){toast('Library OCR belum tersedia. Periksa koneksi internet.');return}$('ocrStatus').textContent='Memproses foto dengan OCR...';try{const result=await Tesseract.recognize(f,'eng',{logger:m=>{if(m.status==='recognizing text')$('ocrStatus').textContent='Membaca teks '+Math.round(m.progress*100)+'%'}});const text=result.data.text;const candidates=[...text.matchAll(/(?:\d[\s-]*){15}/g)].map(m=>m[0].replace(/\D/g,''));if(candidates.length){$('sImei').value=candidates[0];$('ocrStatus').textContent='Ditemukan '+candidates.length+' kandidat. Periksa dan konfirmasi IMEI sebelum menyimpan.';toast('IMEI terdeteksi — mohon verifikasi')}else{$('ocrStatus').textContent='Tidak menemukan IMEI 15 digit. Coba foto lebih jelas atau input manual.';toast('IMEI tidak terdeteksi')}}catch(err){$('ocrStatus').textContent='OCR gagal: '+err.message;toast('OCR gagal')}};
+$('themeBtn').onclick=()=>{const d=document.documentElement.dataset.theme==='dark'?'light':'dark';document.documentElement.dataset.theme=d;localStorage.setItem('jodi-theme',d)};if(localStorage.getItem('jodi-theme'))document.documentElement.dataset.theme=localStorage.getItem('jodi-theme');
+$('savePin').onclick=async()=>{const p=$('appPin').value;if(p&&(!/^\d{4,8}$/.test(p))){toast('PIN harus 4–8 digit');return}await putSetting('pinHash',p?await hash(p):'');$('pinStatus').textContent=p?'PIN tersimpan (hash SHA-256).':'PIN dinonaktifkan.';toast('Pengaturan PIN disimpan')};async function hash(s){const b=await crypto.subtle.digest('SHA-256',new TextEncoder().encode(s));return [...new Uint8Array(b)].map(x=>x.toString(16).padStart(2,'0')).join('')}
+async function cloudSetup(){const url=$('sbUrl').value.trim(),key=$('sbKey').value.trim();if(!url||!key)throw Error('Isi Project URL dan anon/publishable key');await putSetting('cloudConfig',{url,key});sb=supabase.createClient(url,key);return sb}
+async function cloudInit(){const c=(await getSetting('cloudConfig'))?.value;if(c&&window.supabase){$('sbUrl').value=c.url;$('sbKey').value=c.key;sb=supabase.createClient(c.url,c.key);const {data}=await sb.auth.getSession();cloudUser=data.session?.user||null;updateCloudStatus()}}
+function updateCloudStatus(){ $('cloudStatus').textContent=cloudUser?'Terhubung sebagai '+cloudUser.email:'Belum login. Simpan konfigurasi Supabase lalu daftar atau masuk.'}
+async function deriveKey(password,salt){const material=await crypto.subtle.importKey('raw',new TextEncoder().encode(password),'PBKDF2',false,['deriveKey']);return crypto.subtle.deriveKey({name:'PBKDF2',salt,iterations:250000,hash:'SHA-256'},material,{name:'AES-GCM',length:256},false,['encrypt','decrypt'])}
+async function encryptPayload(payload,password){const salt=crypto.getRandomValues(new Uint8Array(16)),iv=crypto.getRandomValues(new Uint8Array(12)),key=await deriveKey(password,salt),cipher=await crypto.subtle.encrypt({name:'AES-GCM',iv},key,new TextEncoder().encode(JSON.stringify(payload)));return {salt:b64(salt),iv:b64(iv),cipher:b64(new Uint8Array(cipher)),version:1}}
+async function decryptPayload(blob,password){const key=await deriveKey(password,unb64(blob.salt));const plain=await crypto.subtle.decrypt({name:'AES-GCM',iv:unb64(blob.iv)},key,unb64(blob.cipher));return JSON.parse(new TextDecoder().decode(plain))}
+function b64(a){return btoa(String.fromCharCode(...a))}function unb64(s){return Uint8Array.from(atob(s),c=>c.charCodeAt(0))}
+$('cloudSignup').onclick=async()=>{try{await cloudSetup();const {data,error}=await sb.auth.signUp({email:$('cloudEmail').value,password:$('cloudPassword').value});if(error)throw error;cloudUser=data.user;$('cloudStatus').textContent='Pendaftaran diproses. Jika konfirmasi email aktif, verifikasi email dahulu.';toast('Permintaan pendaftaran dikirim')}catch(e){toast(e.message)}};
+$('cloudLogin').onclick=async()=>{try{await cloudSetup();const {data,error}=await sb.auth.signInWithPassword({email:$('cloudEmail').value,password:$('cloudPassword').value});if(error)throw error;cloudUser=data.user;updateCloudStatus();toast('Login cloud berhasil')}catch(e){toast(e.message)}};
+$('cloudLogout').onclick=async()=>{if(sb)await sb.auth.signOut();cloudUser=null;cryptoKey=null;updateCloudStatus();toast('Keluar dari cloud')};
+$('cloudSync').onclick=async()=>{try{if(!sb)await cloudSetup();if(!cloudUser){const {data}=await sb.auth.getSession();cloudUser=data.session?.user;if(!cloudUser)throw Error('Login cloud terlebih dahulu')}const password=$('cloudPassword').value;if(!password||password.length<8)throw Error('Masukkan password cloud (minimal 8 karakter) untuk enkripsi');const payload=await encryptPayload({sales,settings},password);const {error}=await sb.from('jodi_sales_vault').upsert({user_id:cloudUser.id,payload,updated_at:new Date().toISOString()},{onConflict:'user_id'});if(error)throw error;toast('Backup terenkripsi berhasil di cloud');$('cloudStatus').textContent='Cloud tersinkron · '+cloudUser.email}catch(e){toast('Sinkronisasi gagal: '+e.message)}};
+async function init(){db=await openDB();await refresh();await cloudInit();$('pinStatus').textContent=(await getSetting('pinHash'))?.value?'PIN telah diatur.':'PIN belum diatur.'}
+init().catch(e=>{console.error(e);toast('Gagal membuka database lokal')});
+if('serviceWorker'in navigator&&location.protocol.startsWith('http'))window.addEventListener('load',()=>navigator.serviceWorker.register('./sw.js').catch(console.warn));
+</script>
+</body></html>
