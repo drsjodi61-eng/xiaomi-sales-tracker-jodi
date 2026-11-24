@@ -50,3 +50,4 @@ Sinkronisasi saat ini adalah **backup cloud terenkripsi satu-vault** (snapshot),
 
 ## Status validasi
 Paket ini menyediakan mekanisme pengujian manual. Belum ada klaim bahwa aplikasi telah diuji pada perangkat atau project Supabase milik pengguna. Uji di lingkungan target sebelum memasukkan data penjualan nyata.
+Pemeriksaan publikasi Xiaomi Sales Tracker Jodi.
